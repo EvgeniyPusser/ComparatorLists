@@ -6,7 +6,7 @@ public class PhoneNums {
 
 
     public static void main(String[] args) {
-        TreeMap<String,ArrayList<Long>> m = new TreeMap<String,ArrayList<Long>>();
+        HashMap<String,ArrayList<Long>> m = new HashMap<String,ArrayList<Long>>();
 
         ArrayList<Long> a1 = new ArrayList<Long>();
         a1.add(89119876234L);
@@ -29,15 +29,10 @@ public class PhoneNums {
                 new Comparator<Entry<String,ArrayList<Long>>>() {
 
                     @Override
-                    public int compare(Entry<String, ArrayList<Long>> arg0,
+                    public int compare(Entry<String, ArrayList<Long>> arg1,
                                        Entry<String, ArrayList<Long>
-                                               > arg1) {
-                        if (arg0.getValue().size() > arg1.getValue().size())
-                            return 1;
-                        else if (arg0.getValue().size() < arg1.getValue().size())
-                            return -1;
-                        else
-                            return 1;
+                                               > arg0) {
+                        return Integer.compare(arg0.getValue().size(), arg1.getValue().size());
                     }
                 }
         );
